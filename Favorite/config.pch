@@ -1,0 +1,15 @@
+//
+//  config.pch
+//  Favorite
+//
+//  Created by 马 瑞鹏 on 14/11/25.
+//  Copyright (c) 2014年 FourEye Mobile. All rights reserved.
+//
+
+#ifndef Favorite_config_pch
+#define Favorite_config_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <Mantle/Mantle.h>
+#endif
