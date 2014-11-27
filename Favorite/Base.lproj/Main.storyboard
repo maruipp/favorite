@@ -2,30 +2,113 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--搜索-->
         <scene sceneID="2lX-7c-vSw">
             <objects>
                 <tableViewController id="hb6-DT-YW4" customClass="SearchTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cds-wq-Kwd">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="88" sectionHeaderHeight="22" sectionFooterHeight="22" id="cds-wq-Kwd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="LhG-gn-BJw">
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="dA6-7F-1Vl">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <outlet property="delegate" destination="hb6-DT-YW4" id="uCq-Oq-g7i"/>
+                                <outlet property="delegate" destination="hb6-DT-YW4" id="PWa-Gc-tIO"/>
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1j7-vS-oop">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchTableViewCell" rowHeight="88" id="1j7-vS-oop" customClass="SearchTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1j7-vS-oop" id="1Kv-D1-ALU">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJm-EY-i6M" userLabel="App Button">
+                                            <rect key="frame" x="15" y="15" width="57" height="57"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="57" id="Rcl-w0-wgp"/>
+                                                <constraint firstAttribute="height" constant="57" id="kp4-hT-s6J"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="image_default">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon_mask_white" translatesAutoresizingMaskIntoConstraints="NO" id="yK1-ht-sme" userLabel="mask">
+                                            <rect key="frame" x="15" y="15" width="57" height="57"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="跑步吧 - 可以玩的跑步app" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPW-h9-bgQ">
+                                            <rect key="frame" x="82" y="23" width="447" height="21"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本 1.0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujr-1s-ixF">
+                                            <rect key="frame" x="82" y="49" width="447" height="12"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbL-4k-1U3">
+                                            <rect key="frame" x="539" y="31" width="46" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="0yp-lQ-7af"/>
+                                                <constraint firstAttribute="width" constant="46" id="O30-43-2Vo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <state key="normal" title="收藏" backgroundImage="favorite_normal">
+                                                <color key="titleColor" red="0.91764705882352937" green="0.5490196078431373" blue="0.16470588235294117" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="disabled" title="已收藏" backgroundImage="favorite_disable">
+                                                <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GPW-h9-bgQ" firstAttribute="leading" secondItem="yK1-ht-sme" secondAttribute="trailing" constant="10" id="3JB-eh-yQu"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="GPW-h9-bgQ" secondAttribute="bottom" constant="35" id="6I6-F6-8R2"/>
+                                        <constraint firstItem="GPW-h9-bgQ" firstAttribute="trailing" secondItem="Ujr-1s-ixF" secondAttribute="trailing" id="7Rr-T8-0g1"/>
+                                        <constraint firstItem="Ujr-1s-ixF" firstAttribute="top" secondItem="GPW-h9-bgQ" secondAttribute="bottom" constant="5" id="8V6-Es-IMe"/>
+                                        <constraint firstItem="GPW-h9-bgQ" firstAttribute="leading" secondItem="Ujr-1s-ixF" secondAttribute="leading" id="9Lg-fj-ISC"/>
+                                        <constraint firstItem="UJm-EY-i6M" firstAttribute="leading" secondItem="1Kv-D1-ALU" secondAttribute="leading" constant="15" id="All-Pe-bZz"/>
+                                        <constraint firstItem="yK1-ht-sme" firstAttribute="width" secondItem="UJm-EY-i6M" secondAttribute="width" id="Cid-zw-eci"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Ujr-1s-ixF" secondAttribute="bottom" constant="18" id="GSw-v4-e4m"/>
+                                        <constraint firstAttribute="centerY" secondItem="MbL-4k-1U3" secondAttribute="centerY" id="NtO-if-4ui"/>
+                                        <constraint firstItem="GPW-h9-bgQ" firstAttribute="top" secondItem="1Kv-D1-ALU" secondAttribute="topMargin" constant="15" id="PGJ-OD-4LL"/>
+                                        <constraint firstAttribute="centerY" secondItem="UJm-EY-i6M" secondAttribute="centerY" id="RaD-wQ-hf5"/>
+                                        <constraint firstItem="MbL-4k-1U3" firstAttribute="leading" secondItem="GPW-h9-bgQ" secondAttribute="trailing" constant="10" id="Ugh-7P-zUV"/>
+                                        <constraint firstItem="yK1-ht-sme" firstAttribute="leading" secondItem="UJm-EY-i6M" secondAttribute="leading" id="Uxl-Ge-uhC"/>
+                                        <constraint firstItem="Ujr-1s-ixF" firstAttribute="trailing" secondItem="GPW-h9-bgQ" secondAttribute="trailing" id="chW-RS-JBR"/>
+                                        <constraint firstItem="Ujr-1s-ixF" firstAttribute="firstBaseline" secondItem="MbL-4k-1U3" secondAttribute="baseline" id="gVe-tL-6XU"/>
+                                        <constraint firstItem="MbL-4k-1U3" firstAttribute="top" secondItem="1Kv-D1-ALU" secondAttribute="topMargin" constant="29" id="iZs-BF-wvw"/>
+                                        <constraint firstItem="Ujr-1s-ixF" firstAttribute="firstBaseline" secondItem="MbL-4k-1U3" secondAttribute="firstBaseline" id="l67-UZ-jHv"/>
+                                        <constraint firstItem="yK1-ht-sme" firstAttribute="height" secondItem="UJm-EY-i6M" secondAttribute="height" id="vZI-Vf-NcE"/>
+                                        <constraint firstAttribute="trailing" secondItem="MbL-4k-1U3" secondAttribute="trailing" constant="15" id="xNf-dV-1qS"/>
+                                        <constraint firstItem="yK1-ht-sme" firstAttribute="top" secondItem="UJm-EY-i6M" secondAttribute="top" id="zZo-ss-gsZ"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="chW-RS-JBR"/>
+                                            <exclude reference="gVe-tL-6XU"/>
+                                            <exclude reference="l67-UZ-jHv"/>
+                                            <exclude reference="iZs-BF-wvw"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="appButton" destination="UJm-EY-i6M" id="rmr-vC-Tri"/>
+                                    <outlet property="appIconMask" destination="yK1-ht-sme" id="df4-W2-QY5"/>
+                                    <outlet property="nameLabel" destination="GPW-h9-bgQ" id="RR6-5y-sTd"/>
+                                    <outlet property="versionLabel" destination="Ujr-1s-ixF" id="xrJ-d6-YLW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -35,36 +118,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="搜索" id="52h-pn-ZuQ"/>
                     <connections>
-                        <outlet property="searchBar" destination="LhG-gn-BJw" id="5F7-rw-83R"/>
-                        <outlet property="searchDisplayController" destination="EXL-1k-kqJ" id="BHO-3V-Nkh"/>
+                        <outlet property="searchBar" destination="dA6-7F-1Vl" id="jDL-To-Mnl"/>
+                        <outlet property="tableView" destination="cds-wq-Kwd" id="6Yk-YW-tFP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcX-t7-Ihd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="e4N-oa-9cF">
-                    <connections>
-                        <outlet property="delegate" destination="hb6-DT-YW4" id="l5o-ke-MXg"/>
-                        <outlet property="searchContentsController" destination="hb6-DT-YW4" id="Ywr-hb-5X9"/>
-                        <outlet property="searchResultsDataSource" destination="hb6-DT-YW4" id="vEa-Wy-r4D"/>
-                        <outlet property="searchResultsDelegate" destination="hb6-DT-YW4" id="iXC-vY-MEf"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="hyg-A7-fq5">
-                    <connections>
-                        <outlet property="delegate" destination="hb6-DT-YW4" id="b1H-Fx-bfj"/>
-                        <outlet property="searchContentsController" destination="hb6-DT-YW4" id="gWw-om-InV"/>
-                        <outlet property="searchResultsDataSource" destination="hb6-DT-YW4" id="lE5-qq-lG1"/>
-                        <outlet property="searchResultsDelegate" destination="hb6-DT-YW4" id="jyq-mN-Bge"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="EXL-1k-kqJ">
-                    <connections>
-                        <outlet property="delegate" destination="hb6-DT-YW4" id="IJ5-vz-aHN"/>
-                        <outlet property="searchBar" destination="LhG-gn-BJw" id="uWl-9N-J3E"/>
-                        <outlet property="searchContentsController" destination="hb6-DT-YW4" id="Pdc-iI-qKp"/>
-                        <outlet property="searchResultsDataSource" destination="hb6-DT-YW4" id="7kN-On-axJ"/>
-                        <outlet property="searchResultsDelegate" destination="hb6-DT-YW4" id="p4y-Iq-5SX"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1562" y="-304"/>
         </scene>
@@ -127,11 +185,11 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Item-->
+        <!--主页-->
         <scene sceneID="Zf0-fa-B7u">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ekr-mq-qbR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="UIh-kG-QFe"/>
+                    <tabBarItem key="tabBarItem" title="主页" image="tabbar_home" id="UIh-kG-QFe"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ymp-z3-g71">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -146,11 +204,11 @@
             </objects>
             <point key="canvasLocation" x="750" y="-304"/>
         </scene>
-        <!--Second-->
+        <!--我的收藏-->
         <scene sceneID="Rb5-j8-MDP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="the-DA-uaW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="我的收藏" image="tabbar_like" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pK4-Nc-GY1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -167,6 +225,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="second" width="30" height="30"/>
+        <image name="app_icon_mask_white" width="57" height="57"/>
+        <image name="favorite_disable" width="48" height="26"/>
+        <image name="favorite_normal" width="48" height="26"/>
+        <image name="image_default" width="57" height="57"/>
+        <image name="tabbar_home" width="30" height="30"/>
+        <image name="tabbar_like" width="30" height="30"/>
     </resources>
 </document>

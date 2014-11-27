@@ -8,15 +8,22 @@
 
 #import "SearchTableViewController.h"
 #import "NSObject+Network.h"
-@interface SearchTableViewController ()<UISearchBarDelegate>
+#import "FEItem.h"
+#import <SVProgressHUD.h>
+#import "SearchTableViewCell.h"
+#import <UIButton+AFNetworking.h>
+@interface SearchTableViewController ()<UISearchBarDelegate,UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
-
+@property (nonatomic,strong) NSArray *dataArray;
+@property (nonatomic,strong) NSArray *searchHistoryArray;
+@property (nonatomic,copy) FEItem *activeItem;
 @end
 
 @implementation SearchTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.searchHistoryArray = @[@"item1",@"item2",@"item3",@"item4"];
     _searchBar.delegate = self;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -28,28 +35,124 @@
 #pragma mark - network
 - (void)requestAppByAppName:(NSString *)appName
 {
-    
+    [_searchBar resignFirstResponder];
+    [SVProgressHUD showWithStatus:@"请稍候.." maskType:SVProgressHUDMaskTypeClear];
     NSString *urlStr = @"https://itunes.apple.com/search";
     NSDictionary *paraDic = @{@"term":appName,@"country":@"CN",@"media":@"software"};
-    [self getWithUrl:urlStr para:paraDic success:^(id responseObj) {
-        
+    [self getWithUrl:urlStr para:paraDic success:^(NSDictionary *responseObj) {
+        NSArray *items = responseObj[@"results"];
+        NSError *error = nil;
+        self.dataArray = [MTLJSONAdapter modelsOfClass:FEItem.class fromJSONArray:items error:&error];
+        if (!error) {
+            [self.tableView reloadData];
+            
+        }
+        [SVProgressHUD dismiss];
     } failure:^(id error) {
-        
+        [SVProgressHUD dismiss];
     }];
 }
 
 #pragma mark - Table view data source
 
+// UITableViewDataSource
+// Placeholders for required UITableViewDataSource delegate methods
+//
+// Platform: iOS
+// Language: Objective-C
+// Completion Scope: Class Implementation
+
+#pragma mark - UITableViewDataSource
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView == self.tableView) {
+        return _dataArray.count;
+    }
+//    else if (tableView == _searchDisplayController.searchResultsTableView){
+//        return _searchHistoryArray.count;
+//    }
     return 0;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.tableView) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchTableViewCell" forIndexPath:indexPath];
+        
+        [self configureCell:cell forRowAtIndexPath:indexPath];
+        
+        return cell;
+    }
+//    else if (tableView == _searchDisplayController.searchResultsTableView){
+//        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchTipsCell"];
+//        cell.textLabel.text = _searchHistoryArray[indexPath.row];
+//    }
+    return nil;
+    
+}
+
+#pragma mark - config cell
+- (void)configureCell:(UITableViewCell *)cell
+    forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    FEItem *item = [_dataArray objectAtIndex:indexPath.row];
+    SearchTableViewCell *searchCell = (SearchTableViewCell *)cell;
+    searchCell.nameLabel.text = item.trackName;
+    [searchCell.appButton setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:item.artworkUrl60] placeholderImage:[UIImage imageNamed:@"image_default"]];
+
+}
+
+#pragma mark - alert to app store
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            
+            break;
+        case 1:
+            if (_activeItem.trackViewUrl) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:_activeItem.trackViewUrl]];
+            }
+            break;
+        default:
+            break;
+    }
+}
+// UITableViewDelegate
+// Placeholders for required UITableViewDelegate protocol methods
+//
+// Platform: iOS
+// Language: Objective-C
+// Completion Scope: Class Implementation
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    self.activeItem = [_dataArray objectAtIndex:indexPath.row];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"要转到App Store下载吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SearchTableViewCell *searchCell = (SearchTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [searchCell changeMaskToGray:YES];
+    return YES;
+}
+//- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(6_0);
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    SearchTableViewCell *searchCell = (SearchTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [searchCell changeMaskToGray:NO];
 }
 
 /*
@@ -108,12 +211,15 @@
 #pragma mark - UISearchBar Delegate
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
 {
-    [self requestAppByAppName:searchBar.text];
+    
     return YES;
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     NSLog(@"%@",searchText);
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self requestAppByAppName:searchBar.text];
 }
 
 @end
