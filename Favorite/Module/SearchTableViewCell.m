@@ -7,6 +7,10 @@
 //
 
 #import "SearchTableViewCell.h"
+@interface SearchTableViewCell ()
+@property (strong, nonatomic) IBOutlet UIButton *favoriteButton;
+
+@end
 
 @implementation SearchTableViewCell
 
@@ -22,5 +26,12 @@
         [_appIconMask setImage:[UIImage imageNamed:@"app_icon_mask_white"]];
     }
 }
+- (IBAction)favoriteBtnTapped:(id)sender {
+    _favoriteBlock();
+}
 
+- (void)setIsFavorite:(BOOL)isFavorite
+{
+    _favoriteButton.enabled = !isFavorite;
+}
 @end

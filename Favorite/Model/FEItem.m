@@ -28,4 +28,10 @@
 //             @"":@"",
 //             };
 //}
+
+- (BOOL)isEqual:(id)object
+{
+    FEItem *aItem = object;
+    return [self.trackId isEqualToString:aItem.trackId];
+}
 @end

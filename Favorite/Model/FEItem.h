@@ -14,4 +14,6 @@
 @property (nonatomic,copy) NSString *trackName;//app name
 @property (nonatomic,copy) NSString *fileSizeBytes;//size
 @property (nonatomic,copy) NSString *trackViewUrl;//商店url
+@property (nonatomic,copy) NSString *trackId;//id
+
 @end

@@ -12,6 +12,8 @@
 #import <SVProgressHUD.h>
 #import "SearchTableViewCell.h"
 #import <UIButton+AFNetworking.h>
+#import "FEFavoriteManager.h"
+
 @interface SearchTableViewController ()<UISearchBarDelegate,UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic,strong) NSArray *dataArray;
@@ -25,6 +27,8 @@
     [super viewDidLoad];
     self.searchHistoryArray = @[@"item1",@"item2",@"item3",@"item4"];
     _searchBar.delegate = self;
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -105,6 +109,20 @@
     FEItem *item = [_dataArray objectAtIndex:indexPath.row];
     SearchTableViewCell *searchCell = (SearchTableViewCell *)cell;
     searchCell.nameLabel.text = item.trackName;
+    __weak typeof(searchCell)weakCell = searchCell;
+    searchCell.favoriteBlock = ^(void){
+        BOOL isFavorite = [[FEFavoriteManager sharedManager].items containsObject:item];
+        
+        if (weakCell.isFavorite) {
+            [[FEFavoriteManager sharedManager] pop:item];
+            
+        }else{
+            [[FEFavoriteManager sharedManager] push:item];
+        }
+        isFavorite = !isFavorite;
+        
+        weakCell.isFavorite = isFavorite;
+    };
     [searchCell.appButton setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:item.artworkUrl60] placeholderImage:[UIImage imageNamed:@"image_default"]];
 
 }
@@ -139,7 +157,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.activeItem = [_dataArray objectAtIndex:indexPath.row];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"要转到App Store下载吗？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    NSString *tip = [NSString stringWithFormat:@"要转到App Store下载'%@'吗？",_activeItem.trackName];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:tip delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alert show];
 }
 
