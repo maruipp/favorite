@@ -32,14 +32,14 @@
 
 - (void)testPush{
     FEItem *item = [[FEItem alloc] init];
-    item.trackId = @"see id";
+    item.trackId = @1;
     [_favoriteManager push:item];
     XCTAssertTrue([_favoriteManager.items containsObject:item], @"push should be success");
 }
 
 - (void)testPop{
     FEItem *item = [[FEItem alloc] init];
-    item.trackId = @"see id";
+    item.trackId = @1;
     [_favoriteManager push:item];
     [_favoriteManager pop:item];
     XCTAssertTrue(![_favoriteManager.items containsObject:item], @"pop should not exist in items");
@@ -53,7 +53,7 @@
 - (void)testItemsStorage
 {
     FEItem *item = [[FEItem alloc] init];
-    item.trackId = @"see id";
+    item.trackId = @1;
     [_favoriteManager push:item];
     [[NSNotificationCenter defaultCenter] postNotificationName:UIApplicationWillTerminateNotification object:nil];
     NSArray *results = [_favoriteManager itemsInDisk];

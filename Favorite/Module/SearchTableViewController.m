@@ -11,7 +11,7 @@
 #import "FEItem.h"
 #import <SVProgressHUD.h>
 #import "SearchTableViewCell.h"
-#import <UIButton+AFNetworking.h>
+
 #import "FEFavoriteManager.h"
 
 @interface SearchTableViewController ()<UISearchBarDelegate,UIAlertViewDelegate>

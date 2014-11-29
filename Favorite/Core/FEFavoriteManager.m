@@ -26,6 +26,7 @@
 - (id)init
 {
     if (self = [super init]) {
+        _items = [[self itemsInDisk] mutableCopy];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveToDisk) name:UIApplicationWillTerminateNotification object:nil];
     }
     return self;
@@ -63,7 +64,7 @@
 }
 - (NSArray *)itemsInDisk
 {
-    NSMutableArray *result = [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePath]];
+    NSArray *result = [NSKeyedUnarchiver unarchiveObjectWithFile:[self filePath]];
     return result;
 }
 - (NSString *)filePath

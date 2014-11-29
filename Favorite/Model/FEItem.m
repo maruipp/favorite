@@ -31,7 +31,15 @@
 
 - (BOOL)isEqual:(id)object
 {
+    if (![object isKindOfClass:[FEItem class]]) {
+        return NO;
+    }
+    
     FEItem *aItem = object;
-    return [self.trackId isEqualToString:aItem.trackId];
+    if (![_trackId isKindOfClass:[NSNumber class]] || ![aItem.trackId isKindOfClass:[NSNumber class]]) {
+        return NO;
+    }
+    
+    return [self.trackId isEqualToNumber:aItem.trackId];
 }
 @end

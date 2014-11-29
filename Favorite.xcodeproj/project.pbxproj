@@ -16,10 +16,10 @@
 		9C2CEC3E1A237DBF006EE2F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2CEC3D1A237DBF006EE2F6 /* AppDelegate.m */; };
 		9C2CEC491A237DCD006EE2F6 /* AFHTTPRequestOperationManager+HttpHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2CEC411A237DCD006EE2F6 /* AFHTTPRequestOperationManager+HttpHeader.m */; };
 		9C2CEC4A1A237DCD006EE2F6 /* NSObject+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2CEC431A237DCD006EE2F6 /* NSObject+Network.m */; };
-		9C2CEC4C1A237DCD006EE2F6 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2CEC481A237DCD006EE2F6 /* SecondViewController.m */; };
 		9C2CEC4F1A2383D5006EE2F6 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2CEC4E1A2383D5006EE2F6 /* SearchTableViewController.m */; };
 		9C3415AA1A29B61600FC3FDF /* FEFavoriteManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3415A91A29B61600FC3FDF /* FEFavoriteManagerTest.m */; };
 		9C3415AE1A29B9BF00FC3FDF /* FEFavoriteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3415AD1A29B9BF00FC3FDF /* FEFavoriteManager.m */; };
+		9C3415B21A29E1DE00FC3FDF /* FavoriteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3415B11A29E1DE00FC3FDF /* FavoriteTableViewController.m */; };
 		9C5067811A25FF6A007EE617 /* FEItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5067801A25FF6A007EE617 /* FEItem.m */; };
 		9C5067821A25FF6A007EE617 /* FEItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5067801A25FF6A007EE617 /* FEItem.m */; };
 		9CED58961A260A4500ED0454 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CED58951A260A4500ED0454 /* SearchTableViewCell.m */; };
@@ -52,13 +52,13 @@
 		9C2CEC411A237DCD006EE2F6 /* AFHTTPRequestOperationManager+HttpHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPRequestOperationManager+HttpHeader.m"; sourceTree = "<group>"; };
 		9C2CEC421A237DCD006EE2F6 /* NSObject+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Network.h"; sourceTree = "<group>"; };
 		9C2CEC431A237DCD006EE2F6 /* NSObject+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Network.m"; sourceTree = "<group>"; };
-		9C2CEC471A237DCD006EE2F6 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		9C2CEC481A237DCD006EE2F6 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		9C2CEC4D1A2383D5006EE2F6 /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
 		9C2CEC4E1A2383D5006EE2F6 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
 		9C3415A91A29B61600FC3FDF /* FEFavoriteManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEFavoriteManagerTest.m; sourceTree = "<group>"; };
 		9C3415AC1A29B9BF00FC3FDF /* FEFavoriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEFavoriteManager.h; sourceTree = "<group>"; };
 		9C3415AD1A29B9BF00FC3FDF /* FEFavoriteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEFavoriteManager.m; sourceTree = "<group>"; };
+		9C3415B01A29E1DE00FC3FDF /* FavoriteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteTableViewController.h; sourceTree = "<group>"; };
+		9C3415B11A29E1DE00FC3FDF /* FavoriteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteTableViewController.m; sourceTree = "<group>"; };
 		9C50677F1A25FF6A007EE617 /* FEItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEItem.h; sourceTree = "<group>"; };
 		9C5067801A25FF6A007EE617 /* FEItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEItem.m; sourceTree = "<group>"; };
 		9CED58941A260A4500ED0454 /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
@@ -175,9 +175,8 @@
 		9C2CEC441A237DCD006EE2F6 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				9C3415AF1A29E1BE00FC3FDF /* Favorite */,
 				9CED58931A260A0E00ED0454 /* Home */,
-				9C2CEC471A237DCD006EE2F6 /* SecondViewController.h */,
-				9C2CEC481A237DCD006EE2F6 /* SecondViewController.m */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -189,6 +188,15 @@
 				9C3415AD1A29B9BF00FC3FDF /* FEFavoriteManager.m */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		9C3415AF1A29E1BE00FC3FDF /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				9C3415B01A29E1DE00FC3FDF /* FavoriteTableViewController.h */,
+				9C3415B11A29E1DE00FC3FDF /* FavoriteTableViewController.m */,
+			);
+			name = Favorite;
 			sourceTree = "<group>";
 		};
 		9C50677E1A25FBD6007EE617 /* Model */ = {
@@ -358,11 +366,11 @@
 				9C2CEC4F1A2383D5006EE2F6 /* SearchTableViewController.m in Sources */,
 				9C3415AE1A29B9BF00FC3FDF /* FEFavoriteManager.m in Sources */,
 				9CED58961A260A4500ED0454 /* SearchTableViewCell.m in Sources */,
-				9C2CEC4C1A237DCD006EE2F6 /* SecondViewController.m in Sources */,
 				9C2CEC3E1A237DBF006EE2F6 /* AppDelegate.m in Sources */,
 				9C0FF62E1A2374670072E4A6 /* main.m in Sources */,
 				9C5067811A25FF6A007EE617 /* FEItem.m in Sources */,
 				9C2CEC4A1A237DCD006EE2F6 /* NSObject+Network.m in Sources */,
+				9C3415B21A29E1DE00FC3FDF /* FavoriteTableViewController.m in Sources */,
 				9C2CEC491A237DCD006EE2F6 /* AFHTTPRequestOperationManager+HttpHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
