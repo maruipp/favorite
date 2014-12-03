@@ -52,7 +52,10 @@
             
         }
         [SVProgressHUD dismiss];
-    } failure:^(id error) {
+    } failure:^(NSError *error) {
+        if (-1001 == error.code) {
+            [self.view makeToast:@"连接超时，请重试"];
+        }
         [SVProgressHUD dismiss];
     }];
 }
@@ -110,9 +113,8 @@
     SearchTableViewCell *searchCell = (SearchTableViewCell *)cell;
     searchCell.nameLabel.text = item.trackName;
     __weak typeof(searchCell)weakCell = searchCell;
+    __block BOOL isFavorite = [[FEFavoriteManager sharedManager].items containsObject:item];
     searchCell.favoriteBlock = ^(void){
-        BOOL isFavorite = [[FEFavoriteManager sharedManager].items containsObject:item];
-        
         if (weakCell.isFavorite) {
             [[FEFavoriteManager sharedManager] pop:item];
             
@@ -123,8 +125,19 @@
         
         weakCell.isFavorite = isFavorite;
     };
-    [searchCell.appButton setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:item.artworkUrl60] placeholderImage:[UIImage imageNamed:@"image_default"]];
-
+    searchCell.isFavorite = isFavorite;
+//    [searchCell.appButton setBackgroundImageForState:UIControlStateNormal withURL:[NSURL URLWithString:item.artworkUrl60] placeholderImage:[UIImage imageNamed:@"image_default"]];
+    [searchCell.appButton sd_setBackgroundImageWithURL:[NSURL URLWithString:item.artworkUrl60] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"image_default"] options:SDWebImageProgressiveDownload completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (image && cacheType == SDImageCacheTypeNone)
+        {
+            searchCell.appButton.alpha = 0.0;
+            [UIView animateWithDuration:1.0
+                             animations:^{
+                                 searchCell.appButton.alpha = 1.0;
+                             }];
+        }
+    }];
+    searchCell.versionLabel.text = item.version;
 }
 
 #pragma mark - alert to app store
@@ -240,5 +253,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [self requestAppByAppName:searchBar.text];
 }
+
+#pragma mark - touch
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [FEUtil closeKeyboard];
+    
+}
+
 
 @end

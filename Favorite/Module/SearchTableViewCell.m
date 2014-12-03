@@ -10,6 +10,7 @@
 @interface SearchTableViewCell ()
 @property (strong, nonatomic) IBOutlet UIButton *favoriteButton;
 
+
 @end
 
 @implementation SearchTableViewCell

@@ -66,15 +66,45 @@
 #define COCOAPODS_VERSION_MINOR_Mantle_extobjc 5
 #define COCOAPODS_VERSION_PATCH_Mantle_extobjc 1
 
+// SDWebImage
+#define COCOAPODS_POD_AVAILABLE_SDWebImage
+#define COCOAPODS_VERSION_MAJOR_SDWebImage 3
+#define COCOAPODS_VERSION_MINOR_SDWebImage 7
+#define COCOAPODS_VERSION_PATCH_SDWebImage 1
+
+// SDWebImage/Core
+#define COCOAPODS_POD_AVAILABLE_SDWebImage_Core
+#define COCOAPODS_VERSION_MAJOR_SDWebImage_Core 3
+#define COCOAPODS_VERSION_MINOR_SDWebImage_Core 7
+#define COCOAPODS_VERSION_PATCH_SDWebImage_Core 1
+
 // SVProgressHUD
 #define COCOAPODS_POD_AVAILABLE_SVProgressHUD
 #define COCOAPODS_VERSION_MAJOR_SVProgressHUD 1
 #define COCOAPODS_VERSION_MINOR_SVProgressHUD 0
 #define COCOAPODS_VERSION_PATCH_SVProgressHUD 0
 
+// Toast
+#define COCOAPODS_POD_AVAILABLE_Toast
+#define COCOAPODS_VERSION_MAJOR_Toast 2
+#define COCOAPODS_VERSION_MINOR_Toast 4
+#define COCOAPODS_VERSION_PATCH_Toast 0
+
+// UIActivityIndicator-for-SDWebImage
+#define COCOAPODS_POD_AVAILABLE_UIActivityIndicator_for_SDWebImage
+#define COCOAPODS_VERSION_MAJOR_UIActivityIndicator_for_SDWebImage 1
+#define COCOAPODS_VERSION_MINOR_UIActivityIndicator_for_SDWebImage 2
+#define COCOAPODS_VERSION_PATCH_UIActivityIndicator_for_SDWebImage 0
+
 // UMengAnalytics
 #define COCOAPODS_POD_AVAILABLE_UMengAnalytics
 #define COCOAPODS_VERSION_MAJOR_UMengAnalytics 3
 #define COCOAPODS_VERSION_MINOR_UMengAnalytics 1
 #define COCOAPODS_VERSION_PATCH_UMengAnalytics 8
+
+// pop
+#define COCOAPODS_POD_AVAILABLE_pop
+#define COCOAPODS_VERSION_MAJOR_pop 1
+#define COCOAPODS_VERSION_MINOR_pop 0
+#define COCOAPODS_VERSION_PATCH_pop 7
 

@@ -9,6 +9,10 @@ pod 'GHKit'
 pod 'SVProgressHUD', :head
 pod 'UMengAnalytics'
 pod 'Mantle', '~> 1.5.1'
+pod 'pop', '~> 1.0'
+pod 'SDWebImage', '~> 3.7.1'
+pod 'UIActivityIndicator-for-SDWebImage', '~> 1.2'
+pod 'Toast', '~> 2.4'
 end
 
 target 'FavoriteTests' do

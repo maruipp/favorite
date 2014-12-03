@@ -28,20 +28,21 @@
     if (self = [super init]) {
         _items = [[self itemsInDisk] mutableCopy];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveToDisk) name:UIApplicationWillTerminateNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveToDisk) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }
     return self;
 }
 #pragma mark - manage
 - (void)push:(id)anItem
 {
-    
     if (!anItem) {
         return;
     }
     
 //    NSAssert([anItem isKindOfClass:[FEItem class]], @"anObject shoud be FEItem class");
-    
+
     [self.items addObject:anItem];
+    [self saveToDisk];
 }
 
 - (void)pop:(id)anItem
@@ -54,6 +55,7 @@
 //    NSAssert([anItem isKindOfClass:[FEItem class]], @"anObject shoud be FEItem class");
     
     [self.items removeObject:anItem];
+    [self saveToDisk];
 }
 
 #pragma mark - save

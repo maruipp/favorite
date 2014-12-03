@@ -112,7 +112,7 @@
                                     <outlet property="appIconMask" destination="yK1-ht-sme" id="df4-W2-QY5"/>
                                     <outlet property="favoriteButton" destination="MbL-4k-1U3" id="JNb-Yq-fYn"/>
                                     <outlet property="nameLabel" destination="GPW-h9-bgQ" id="RR6-5y-sTd"/>
-                                    <outlet property="versionLabel" destination="Ujr-1s-ixF" id="xrJ-d6-YLW"/>
+                                    <outlet property="versionLabel" destination="Ujr-1s-ixF" id="8qg-Gh-c6p"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -188,7 +188,7 @@
             </objects>
             <point key="canvasLocation" x="844" y="363"/>
         </scene>
-        <!--Favorite Table View Controller-->
+        <!--我的收藏-->
         <scene sceneID="fes-Mv-vbJ">
             <objects>
                 <tableViewController id="ceG-aM-7gK" customClass="FavoriteTableViewController" sceneMemberID="viewController">
@@ -272,8 +272,8 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="gYr-XL-ShZ"/>
                                             <exclude reference="dLr-6T-y0M"/>
+                                            <exclude reference="gYr-XL-ShZ"/>
                                             <exclude reference="wSj-X4-npD"/>
                                             <exclude reference="gPJ-nv-F61"/>
                                         </mask>
@@ -293,7 +293,7 @@
                             <outlet property="delegate" destination="ceG-aM-7gK" id="74F-qn-ahp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Fgz-Q1-NTk"/>
+                    <navigationItem key="navigationItem" title="我的收藏" id="Fgz-Q1-NTk"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hod-RZ-Omh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

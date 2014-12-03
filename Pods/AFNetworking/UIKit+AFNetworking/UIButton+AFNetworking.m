@@ -226,7 +226,10 @@ static const char * af_backgroundImageRequestOperationKeyForState(UIControlState
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
 
-    [self setBackgroundImageForState:state withURLRequest:request placeholderImage:placeholderImage success:nil failure:nil];
+    [UIView animateWithDuration:0.25 animations:^{
+        [self setBackgroundImageForState:state withURLRequest:request placeholderImage:placeholderImage success:nil failure:nil];
+    }];
+    
 }
 
 - (void)setBackgroundImageForState:(UIControlState)state
