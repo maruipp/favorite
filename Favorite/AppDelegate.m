@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import <MobClick.h>
+
+#define UMENG_APP_KEY @"5482af95fd98c52c1d000347"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [MobClick startWithAppkey:UMENG_APP_KEY];
+    [MobClick checkUpdate];
     return YES;
 }
 
