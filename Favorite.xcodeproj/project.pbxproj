@@ -22,6 +22,7 @@
 		9C3415B21A29E1DE00FC3FDF /* FavoriteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3415B11A29E1DE00FC3FDF /* FavoriteTableViewController.m */; };
 		9C3415B51A2B494800FC3FDF /* FEUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3415B41A2B494800FC3FDF /* FEUtil.m */; };
 		9C3415B81A2B4E1E00FC3FDF /* UIScrollView+CloseKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3415B71A2B4E1E00FC3FDF /* UIScrollView+CloseKeyboard.m */; };
+		9C35BB361A322554008AF20B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C35BB381A322554008AF20B /* Localizable.strings */; };
 		9C5067811A25FF6A007EE617 /* FEItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5067801A25FF6A007EE617 /* FEItem.m */; };
 		9C5067821A25FF6A007EE617 /* FEItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5067801A25FF6A007EE617 /* FEItem.m */; };
 		9CED58961A260A4500ED0454 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CED58951A260A4500ED0454 /* SearchTableViewCell.m */; };
@@ -65,6 +66,10 @@
 		9C3415B41A2B494800FC3FDF /* FEUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEUtil.m; sourceTree = "<group>"; };
 		9C3415B61A2B4E1E00FC3FDF /* UIScrollView+CloseKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+CloseKeyboard.h"; sourceTree = "<group>"; };
 		9C3415B71A2B4E1E00FC3FDF /* UIScrollView+CloseKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+CloseKeyboard.m"; sourceTree = "<group>"; };
+		9C35BB321A32253E008AF20B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		9C35BB331A32253E008AF20B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		9C35BB371A322554008AF20B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9C35BB391A322556008AF20B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9C50677F1A25FF6A007EE617 /* FEItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FEItem.h; sourceTree = "<group>"; };
 		9C5067801A25FF6A007EE617 /* FEItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FEItem.m; sourceTree = "<group>"; };
 		9CED58941A260A4500ED0454 /* SearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
@@ -145,6 +150,7 @@
 				9C0FF62C1A2374670072E4A6 /* Info.plist */,
 				9C0FF62D1A2374670072E4A6 /* main.m */,
 				9CEFA6411A24CB6B005DA6D6 /* config.pch */,
+				9C35BB381A322554008AF20B /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 9C0FF61F1A2374670072E4A6;
 			productRefGroup = 9C0FF6291A2374670072E4A6 /* Products */;
@@ -321,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C0FF63A1A2374670072E4A6 /* Main.storyboard in Resources */,
+				9C35BB361A322554008AF20B /* Localizable.strings in Resources */,
 				9C0FF63F1A2374670072E4A6 /* LaunchScreen.xib in Resources */,
 				9C0FF63C1A2374670072E4A6 /* Images.xcassets in Resources */,
 			);
@@ -413,6 +421,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9C0FF6391A2374670072E4A6 /* Base */,
+				9C35BB321A32253E008AF20B /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -421,8 +430,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				9C0FF63E1A2374670072E4A6 /* Base */,
+				9C35BB331A32253E008AF20B /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		9C35BB381A322554008AF20B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C35BB371A322554008AF20B /* en */,
+				9C35BB391A322556008AF20B /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

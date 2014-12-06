@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="Favorite/Base.lproj/LaunchScreen.xib" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.1" build-num="6A1052d"/>
+    </header>
+    <body>
+      <trans-unit id="8ie-xW-0ye.text">
+        <source>  Copyright (c) 2014年 FourEye Mobile. All rights reserved.</source>
+        <target>  Copyright (c) 2014年 FourEye Mobile. All rights reserved.</target>
+        <note>Class = "IBUILabel"; text = "  Copyright (c) 2014年 FourEye Mobile. All rights reserved."; ObjectID = "8ie-xW-0ye";</note>
+      </trans-unit>
+      <trans-unit id="kId-c2-rCX.text">
+        <source>Favorite</source>
+        <target>Favorite</target>
+        <note>Class = "IBUILabel"; text = "Favorite"; ObjectID = "kId-c2-rCX";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Favorite/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.1" build-num="6A1052d"/>
+    </header>
+    <body>
+      <trans-unit id="52h-pn-ZuQ.title">
+        <source>搜索</source>
+        <target>搜索1</target>
+        <note>Class = "IBUINavigationItem"; title = "搜索"; ObjectID = "52h-pn-ZuQ";</note>
+      </trans-unit>
+      <trans-unit id="Fgz-Q1-NTk.title">
+        <source>我的收藏</source>
+        <target>我的收藏</target>
+        <note>Class = "IBUINavigationItem"; title = "我的收藏"; ObjectID = "Fgz-Q1-NTk";</note>
+      </trans-unit>
+      <trans-unit id="GPW-h9-bgQ.text">
+        <source>跑步吧 - 可以玩的跑步app</source>
+        <target>跑步吧 - 可以玩的跑步app</target>
+        <note>Class = "IBUILabel"; text = "跑步吧 - 可以玩的跑步app"; ObjectID = "GPW-h9-bgQ";</note>
+      </trans-unit>
+      <trans-unit id="MbL-4k-1U3.disabledTitle">
+        <source>已收藏</source>
+        <target>已收藏</target>
+        <note>Class = "IBUIButton"; disabledTitle = "已收藏"; ObjectID = "MbL-4k-1U3";</note>
+      </trans-unit>
+      <trans-unit id="MbL-4k-1U3.normalTitle">
+        <source>收藏</source>
+        <target>收藏</target>
+        <note>Class = "IBUIButton"; normalTitle = "收藏"; ObjectID = "MbL-4k-1U3";</note>
+      </trans-unit>
+      <trans-unit id="UIh-kG-QFe.title">
+        <source>主页</source>
+        <target>主页1</target>
+        <note>Class = "IBUITabBarItem"; title = "主页"; ObjectID = "UIh-kG-QFe";</note>
+      </trans-unit>
+      <trans-unit id="Ujr-1s-ixF.text">
+        <source>版本 1.0.0</source>
+        <target>版本 1.0.0</target>
+        <note>Class = "IBUILabel"; text = "版本 1.0.0"; ObjectID = "Ujr-1s-ixF";</note>
+      </trans-unit>
+      <trans-unit id="XhX-Y1-FBi.text">
+        <source>版本 1.0.0</source>
+        <target>版本 1.0.0</target>
+        <note>Class = "IBUILabel"; text = "版本 1.0.0"; ObjectID = "XhX-Y1-FBi";</note>
+      </trans-unit>
+      <trans-unit id="YqK-TY-mtE.disabledTitle">
+        <source>已收藏</source>
+        <target>已收藏</target>
+        <note>Class = "IBUIButton"; disabledTitle = "已收藏"; ObjectID = "YqK-TY-mtE";</note>
+      </trans-unit>
+      <trans-unit id="YqK-TY-mtE.normalTitle">
+        <source>收藏</source>
+        <target>收藏</target>
+        <note>Class = "IBUIButton"; normalTitle = "收藏"; ObjectID = "YqK-TY-mtE";</note>
+      </trans-unit>
+      <trans-unit id="cPa-gy-q4n.title">
+        <source>我的收藏</source>
+        <target>我的收藏</target>
+        <note>Class = "IBUITabBarItem"; title = "我的收藏"; ObjectID = "cPa-gy-q4n";</note>
+      </trans-unit>
+      <trans-unit id="qNl-oK-gfi.text">
+        <source>跑步吧 - 可以玩的跑步app</source>
+        <target>跑步吧 - 可以玩的跑步app</target>
+        <note>Class = "IBUILabel"; text = "跑步吧 - 可以玩的跑步app"; ObjectID = "qNl-oK-gfi";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="Favorite/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.1" build-num="6A1052d"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>CFBundleDisplayName</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="FavoriteTests/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.1" build-num="6A1052d"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="CFBundleShortVersionString">
+        <source>1.0</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="en.lproj/locale.strings" source-language="en" datatype="plaintext" target-language="zh-Hans">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="6.1" build-num="6A1052d"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName">
+        <source>Me Gusta</source>
+        <target>Me Gusta</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

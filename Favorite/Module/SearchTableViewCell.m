@@ -17,6 +17,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+//    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    _appButton.layer.masksToBounds = YES;
+    _appButton.layer.cornerRadius = 10;
 }
 
 - (void)changeMaskToGray:(BOOL)toChange

@@ -1,0 +1,36 @@
+
+/* Class = "IBUINavigationItem"; title = "搜索"; ObjectID = "52h-pn-ZuQ"; */
+"52h-pn-ZuQ.title" = "搜索";
+
+/* Class = "IBUINavigationItem"; title = "我的收藏"; ObjectID = "Fgz-Q1-NTk"; */
+"Fgz-Q1-NTk.title" = "我的收藏";
+
+/* Class = "IBUILabel"; text = "跑步吧 - 可以玩的跑步app"; ObjectID = "GPW-h9-bgQ"; */
+"GPW-h9-bgQ.text" = "跑步吧 - 可以玩的跑步app";
+
+/* Class = "IBUIButton"; disabledTitle = "已收藏"; ObjectID = "MbL-4k-1U3"; */
+"MbL-4k-1U3.disabledTitle" = "已收藏";
+
+/* Class = "IBUIButton"; normalTitle = "收藏"; ObjectID = "MbL-4k-1U3"; */
+"MbL-4k-1U3.normalTitle" = "收藏";
+
+/* Class = "IBUITabBarItem"; title = "主页"; ObjectID = "UIh-kG-QFe"; */
+"UIh-kG-QFe.title" = "主页";
+
+/* Class = "IBUILabel"; text = "版本 1.0.0"; ObjectID = "Ujr-1s-ixF"; */
+"Ujr-1s-ixF.text" = "版本 1.0.0";
+
+/* Class = "IBUILabel"; text = "版本 1.0.0"; ObjectID = "XhX-Y1-FBi"; */
+"XhX-Y1-FBi.text" = "版本 1.0.0";
+
+/* Class = "IBUIButton"; disabledTitle = "已收藏"; ObjectID = "YqK-TY-mtE"; */
+"YqK-TY-mtE.disabledTitle" = "已收藏";
+
+/* Class = "IBUIButton"; normalTitle = "收藏"; ObjectID = "YqK-TY-mtE"; */
+"YqK-TY-mtE.normalTitle" = "收藏";
+
+/* Class = "IBUITabBarItem"; title = "我的收藏"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "我的收藏";
+
+/* Class = "IBUILabel"; text = "跑步吧 - 可以玩的跑步app"; ObjectID = "qNl-oK-gfi"; */
+"qNl-oK-gfi.text" = "跑步吧 - 可以玩的跑步app";

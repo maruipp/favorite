@@ -108,7 +108,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.activeItem = [_dataArray objectAtIndex:indexPath.row];
-    NSString *tip = [NSString stringWithFormat:@"要转到App Store下载'%@'吗？",_activeItem.trackName];
+    
+    NSString *tip = [NSString stringWithFormat:NSLocalizedString(@"go to app store question", nil),_activeItem.trackName];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:tip delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alert show];
 }
@@ -129,4 +130,24 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
             break;
     }
 }
+
+#pragma mark - 滑动删除
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        FEItem *item = [_dataArray objectAtIndex:indexPath.row];
+        [[FEFavoriteManager sharedManager] pop:item];
+        [_dataArray removeObject:item];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+}
+
+- (NSString*)tableView:(UITableView*)tableView
+titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath*)indexpath {
+    return @"取消收藏";
+}
+
 @end

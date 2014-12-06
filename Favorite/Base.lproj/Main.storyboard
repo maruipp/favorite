@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="dA6-7F-1Vl">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="在这里输入应用名" id="dA6-7F-1Vl">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -40,7 +40,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon_mask_white" translatesAutoresizingMaskIntoConstraints="NO" id="yK1-ht-sme" userLabel="mask">
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon_mask_white" translatesAutoresizingMaskIntoConstraints="NO" id="yK1-ht-sme" userLabel="mask">
                                             <rect key="frame" x="15" y="15" width="57" height="57"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="跑步吧 - 可以玩的跑步app" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPW-h9-bgQ">
@@ -75,6 +75,15 @@
                                                 <action selector="favoriteBtnTapped:" destination="1j7-vS-oop" eventType="touchUpInside" id="bIE-ym-emV"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DU0-C9-BUN" userLabel="收藏mask">
+                                            <rect key="frame" x="539" y="0.0" width="51" height="87"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="favoriteBtnTapped:" destination="1j7-vS-oop" eventType="touchUpInside" id="Kdk-fw-vEA"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="GPW-h9-bgQ" firstAttribute="leading" secondItem="yK1-ht-sme" secondAttribute="trailing" constant="10" id="3JB-eh-yQu"/>
@@ -85,17 +94,21 @@
                                         <constraint firstItem="UJm-EY-i6M" firstAttribute="leading" secondItem="1Kv-D1-ALU" secondAttribute="leading" constant="15" id="All-Pe-bZz"/>
                                         <constraint firstItem="yK1-ht-sme" firstAttribute="width" secondItem="UJm-EY-i6M" secondAttribute="width" id="Cid-zw-eci"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Ujr-1s-ixF" secondAttribute="bottom" constant="18" id="GSw-v4-e4m"/>
+                                        <constraint firstAttribute="bottom" secondItem="DU0-C9-BUN" secondAttribute="bottom" id="J2a-BE-BYD"/>
                                         <constraint firstAttribute="centerY" secondItem="MbL-4k-1U3" secondAttribute="centerY" id="NtO-if-4ui"/>
                                         <constraint firstItem="GPW-h9-bgQ" firstAttribute="top" secondItem="1Kv-D1-ALU" secondAttribute="topMargin" constant="15" id="PGJ-OD-4LL"/>
                                         <constraint firstAttribute="centerY" secondItem="UJm-EY-i6M" secondAttribute="centerY" id="RaD-wQ-hf5"/>
+                                        <constraint firstItem="DU0-C9-BUN" firstAttribute="leading" secondItem="MbL-4k-1U3" secondAttribute="leading" id="TlI-jg-3GR"/>
                                         <constraint firstItem="MbL-4k-1U3" firstAttribute="leading" secondItem="GPW-h9-bgQ" secondAttribute="trailing" constant="10" id="Ugh-7P-zUV"/>
                                         <constraint firstItem="yK1-ht-sme" firstAttribute="leading" secondItem="UJm-EY-i6M" secondAttribute="leading" id="Uxl-Ge-uhC"/>
+                                        <constraint firstAttribute="trailing" secondItem="DU0-C9-BUN" secondAttribute="trailing" constant="10" id="Zv9-cw-CR0"/>
                                         <constraint firstItem="Ujr-1s-ixF" firstAttribute="trailing" secondItem="GPW-h9-bgQ" secondAttribute="trailing" id="chW-RS-JBR"/>
                                         <constraint firstItem="Ujr-1s-ixF" firstAttribute="firstBaseline" secondItem="MbL-4k-1U3" secondAttribute="baseline" id="gVe-tL-6XU"/>
                                         <constraint firstItem="MbL-4k-1U3" firstAttribute="top" secondItem="1Kv-D1-ALU" secondAttribute="topMargin" constant="29" id="iZs-BF-wvw"/>
                                         <constraint firstItem="Ujr-1s-ixF" firstAttribute="firstBaseline" secondItem="MbL-4k-1U3" secondAttribute="firstBaseline" id="l67-UZ-jHv"/>
                                         <constraint firstItem="yK1-ht-sme" firstAttribute="height" secondItem="UJm-EY-i6M" secondAttribute="height" id="vZI-Vf-NcE"/>
                                         <constraint firstAttribute="trailing" secondItem="MbL-4k-1U3" secondAttribute="trailing" constant="15" id="xNf-dV-1qS"/>
+                                        <constraint firstItem="DU0-C9-BUN" firstAttribute="top" secondItem="1Kv-D1-ALU" secondAttribute="top" id="zBI-iS-0RC"/>
                                         <constraint firstItem="yK1-ht-sme" firstAttribute="top" secondItem="UJm-EY-i6M" secondAttribute="top" id="zZo-ss-gsZ"/>
                                     </constraints>
                                     <variation key="default">
@@ -121,7 +134,9 @@
                             <outlet property="delegate" destination="hb6-DT-YW4" id="dUi-5K-hvh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="搜索" id="52h-pn-ZuQ"/>
+                    <navigationItem key="navigationItem" title="搜索" id="52h-pn-ZuQ">
+                        <barButtonItem key="leftBarButtonItem" title="中国" id="PQU-EF-tbv"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="dA6-7F-1Vl" id="jDL-To-Mnl"/>
                         <outlet property="tableView" destination="cds-wq-Kwd" id="6Yk-YW-tFP"/>
@@ -212,7 +227,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon_mask_white" translatesAutoresizingMaskIntoConstraints="NO" id="3Y9-Xc-veJ" userLabel="mask">
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon_mask_white" translatesAutoresizingMaskIntoConstraints="NO" id="3Y9-Xc-veJ" userLabel="mask">
                                             <rect key="frame" x="15" y="15" width="57" height="57"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="跑步吧 - 可以玩的跑步app" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNl-oK-gfi">
@@ -229,8 +244,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqK-TY-mtE">
-                                            <rect key="frame" x="539" y="31" width="46" height="26"/>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqK-TY-mtE">
+                                            <rect key="frame" x="537" y="31" width="46" height="26"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="46" id="1cF-id-bik"/>
                                                 <constraint firstAttribute="height" constant="26" id="QVx-08-k1n"/>

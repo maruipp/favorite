@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  Favorite
+
+  Created by 马 瑞鹏 on 14/12/6.
+  Copyright (c) 2014年 FourEye Mobile. All rights reserved.
+*/
+"go to app store question" = "要转到App Store下载'%@'吗？";
+"search_placeholder" = "在这里输入应用名以从App Store进行搜索";
+"CFBundleDisplayName" = "Me Gusta"; 
