@@ -79,6 +79,9 @@ static const int kTimeOutInterval = 60;
 
 - (void)getWithUrl:(NSString *)urlStr para:(NSDictionary *)para success:(void (^)(id)) success failure:(void (^)(id)) fail{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    securityPolicy.allowInvalidCertificates = YES;
+    [AFHTTPRequestOperationManager manager].securityPolicy = securityPolicy;
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/json",@"text/javascript", nil];
     manager.requestSerializer.timeoutInterval = kTimeOutInterval;

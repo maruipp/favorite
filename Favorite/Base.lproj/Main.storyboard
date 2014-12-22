@@ -8,7 +8,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--搜索-->
+        <!--发现-->
         <scene sceneID="2lX-7c-vSw">
             <objects>
                 <tableViewController id="hb6-DT-YW4" customClass="SearchTableViewController" sceneMemberID="viewController">
@@ -30,6 +30,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1j7-vS-oop" id="1Kv-D1-ALU">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_default" translatesAutoresizingMaskIntoConstraints="NO" id="yK1-ht-sme" userLabel="mask">
+                                            <rect key="frame" x="15" y="15" width="57" height="57"/>
+                                        </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJm-EY-i6M" userLabel="App Button">
                                             <rect key="frame" x="15" y="15" width="57" height="57"/>
                                             <constraints>
@@ -40,9 +43,6 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon_mask_white" translatesAutoresizingMaskIntoConstraints="NO" id="yK1-ht-sme" userLabel="mask">
-                                            <rect key="frame" x="15" y="15" width="57" height="57"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="跑步吧 - 可以玩的跑步app" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPW-h9-bgQ">
                                             <rect key="frame" x="82" y="23" width="447" height="21"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -134,10 +134,15 @@
                             <outlet property="delegate" destination="hb6-DT-YW4" id="dUi-5K-hvh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="搜索" id="52h-pn-ZuQ">
-                        <barButtonItem key="leftBarButtonItem" title="中国" id="PQU-EF-tbv"/>
+                    <navigationItem key="navigationItem" title="发现" id="52h-pn-ZuQ">
+                        <barButtonItem key="leftBarButtonItem" title="中国" id="PQU-EF-tbv">
+                            <connections>
+                                <action selector="leftBtnTapped:" destination="hb6-DT-YW4" id="79R-sk-Spx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="leftBarButtonItem" destination="PQU-EF-tbv" id="uKc-8S-A9Y"/>
                         <outlet property="searchBar" destination="dA6-7F-1Vl" id="jDL-To-Mnl"/>
                         <outlet property="tableView" destination="cds-wq-Kwd" id="6Yk-YW-tFP"/>
                     </connections>
@@ -165,11 +170,11 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--主页-->
+        <!--发现-->
         <scene sceneID="Zf0-fa-B7u">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ekr-mq-qbR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="主页" image="tabbar_home" id="UIh-kG-QFe"/>
+                    <tabBarItem key="tabBarItem" title="发现" image="tabbar_home" id="UIh-kG-QFe"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ymp-z3-g71">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

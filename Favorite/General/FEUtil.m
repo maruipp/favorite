@@ -40,4 +40,13 @@
     AudioServicesPlaySystemSound(myAlertSound);
 }
 
++ (void)showBlankStatusBar
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+}
+
++ (void)showWhiteStatusBar
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
 @end

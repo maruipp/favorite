@@ -19,12 +19,17 @@
 @property (nonatomic,strong) NSArray *dataArray;
 @property (nonatomic,strong) NSArray *searchHistoryArray;
 @property (nonatomic,copy) FEItem *activeItem;
+
+@property (nonatomic,copy) NSString *nationalCode;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *leftBarButtonItem;
 @end
 
 @implementation SearchTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.nationalCode = @"CN";
     self.searchHistoryArray = @[@"item1",@"item2",@"item3",@"item4"];
     _searchBar.delegate = self;
     
@@ -36,13 +41,32 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+}
+
 #pragma mark - network
 - (void)requestAppByAppName:(NSString *)appName
 {
     [_searchBar resignFirstResponder];
     [SVProgressHUD showWithStatus:@"请稍候.." maskType:SVProgressHUDMaskTypeClear];
     NSString *urlStr = @"https://itunes.apple.com/search";
-    NSDictionary *paraDic = @{@"term":appName,@"country":@"CN",@"media":@"software"};
+    NSDictionary *paraDic = @{@"term":appName,@"country":_nationalCode,@"media":@"software"};
     [self getWithUrl:urlStr para:paraDic success:^(NSDictionary *responseObj) {
         NSArray *items = responseObj[@"results"];
         NSError *error = nil;
@@ -115,7 +139,7 @@
     __weak typeof(searchCell)weakCell = searchCell;
     __block BOOL isFavorite = [[FEFavoriteManager sharedManager].items containsObject:item];
     searchCell.favoriteBlock = ^(void){
-        if (weakCell.isFavorite) {
+        if (isFavorite) {
             [[FEFavoriteManager sharedManager] pop:item];
             
         }else{
@@ -131,9 +155,11 @@
         if (image && cacheType == SDImageCacheTypeNone)
         {
             searchCell.appButton.alpha = 0.0;
+            
             [UIView animateWithDuration:1.0
                              animations:^{
                                  searchCell.appButton.alpha = 1.0;
+                                 
                              }];
         }
     }];
@@ -187,6 +213,15 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [searchCell changeMaskToGray:NO];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSLog(@"%f",scrollView.contentOffset.y);
+    CGFloat happenOffsetY = - scrollView.contentInset.top;
+    float offset = scrollView.contentOffset.y - happenOffsetY;
+    if (offset < 0) {
+        NSLog(@"---%f",offset);
+    }
+}
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
@@ -248,6 +283,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    if ([NSString gh_isBlank:searchText]) {
+        self.dataArray = nil;
+        [self.tableView reloadData];
+    }
     NSLog(@"%@",searchText);
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
@@ -261,5 +300,19 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     
 }
 
+#pragma mark - button tapped
+- (IBAction)leftBtnTapped:(id)sender {
+    static int count = 0;
+    
+    if (count % 2 == 0) {
+        self.nationalCode = @"JP";
+        _leftBarButtonItem.title = @"日本";
+    }else{
+        self.nationalCode = @"CN";
+        _leftBarButtonItem.title = @"中国";
+    }
+    
+    count++;
+}
 
 @end

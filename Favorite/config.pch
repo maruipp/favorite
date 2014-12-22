@@ -22,4 +22,6 @@
 #import <Toast/UIView+Toast.h>
 
 #import "UIScrollView+CloseKeyboard.h"
+
+#import <GHNSString+Utils.h>
 #endif

@@ -24,4 +24,7 @@
 + (void)vibrate;
 + (void)playSound;
 
++ (void)showBlankStatusBar;
++ (void)showWhiteStatusBar;
+
 @end
