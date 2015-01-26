@@ -71,7 +71,7 @@
 }
 - (NSString *)filePath
 {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *path = [paths firstObject];
     path = [path stringByAppendingPathComponent:kFavoriteStoreFileName];
     return path;
