@@ -24,4 +24,6 @@
 #import "UIScrollView+CloseKeyboard.h"
 
 #import <GHNSString+Utils.h>
+
+#import "PublicShareDef.h"
 #endif

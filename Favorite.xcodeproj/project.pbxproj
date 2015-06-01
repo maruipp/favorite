@@ -83,6 +83,7 @@
 		EFD551971B1C5F52006B1410 /* ItemDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailController.h; sourceTree = "<group>"; };
 		EFD551981B1C5F52006B1410 /* ItemDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailController.m; sourceTree = "<group>"; };
 		EFD5519A1B1C63FE006B1410 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		EFD5519C1B1C716F006B1410 /* PublicShareDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicShareDef.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +192,7 @@
 				9C2CEC431A237DCD006EE2F6 /* NSObject+Network.m */,
 				9C3415B31A2B494800FC3FDF /* FEUtil.h */,
 				9C3415B41A2B494800FC3FDF /* FEUtil.m */,
+				EFD5519C1B1C716F006B1410 /* PublicShareDef.h */,
 			);
 			path = General;
 			sourceTree = "<group>";
