@@ -10,7 +10,8 @@
 #import "FEFavoriteManager.h"
 #import "FEItem.h"
 #import "SearchTableViewCell.h"
-
+#import <StoreKit/StoreKit.h>
+#import <SVProgressHUD.h>
 @interface FavoriteTableViewController ()
 @property (nonatomic,strong) NSMutableArray *dataArray;
 
@@ -112,9 +113,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.activeItem = [_dataArray objectAtIndex:indexPath.row];
     
-    NSString *tip = [NSString stringWithFormat:NSLocalizedString(@"go to app store question", nil),_activeItem.trackName];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:tip delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    [alert show];
+    if (iOS8) {
+        NSString *tip = [NSString stringWithFormat:NSLocalizedString(@"go to app store question", nil),_activeItem.trackName];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:tip delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        [alert show];
+    }else{
+        [self openAppWithIdentifier:_activeItem.trackId];
+    }
 }
 
 #pragma mark - alert to app store
@@ -152,5 +157,29 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath*)indexpath {
     return @"取消收藏";
 }
+
+#pragma mark - open detail store
+- (void)openAppWithIdentifier:(NSNumber *)appId {
+    SKStoreProductViewController *storeProductVC = [[SKStoreProductViewController alloc] init];
+    storeProductVC.delegate = self;
+    [SVProgressHUD showWithStatus:@"请稍候.." maskType:SVProgressHUDMaskTypeClear];
+    
+    NSDictionary *dict = @{SKStoreProductParameterITunesItemIdentifier:appId};
+    
+    [storeProductVC loadProductWithParameters:dict completionBlock:^(BOOL result, NSError *error) {
+        if (result) {
+            [self presentViewController:storeProductVC animated:YES completion:nil];
+        }
+        [SVProgressHUD dismiss];
+    }];
+}
+
+#pragma mark - SKStoreProductViewControllerDelegate
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
+    [viewController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
 
 @end

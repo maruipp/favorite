@@ -310,15 +310,58 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 - (IBAction)leftBtnTapped:(id)sender {
     static int count = 0;
     
-    if (count % 2 == 0) {
-        self.nationalCode = @"JP";
-        _leftBarButtonItem.title = @"日本";
-    }else{
-        self.nationalCode = @"CN";
-        _leftBarButtonItem.title = @"中国";
+    int index = count % 8;
+    
+    switch (index) {
+        case 0:
+            self.nationalCode = @"JP";
+            _leftBarButtonItem.title = @"日本";
+            break;
+            
+        case 1:
+            self.nationalCode = @"US";
+            _leftBarButtonItem.title = @"美国";
+            break;
+            
+        case 2:
+            self.nationalCode = @"DE";
+            _leftBarButtonItem.title = @"德国";
+            break;
+            
+        case 3:
+            self.nationalCode = @"FR";
+            _leftBarButtonItem.title = @"法国";
+            break;
+            
+        case 4:
+            self.nationalCode = @"GB";
+            _leftBarButtonItem.title = @"英国";
+            break;
+            
+        case 5:
+            self.nationalCode = @"AU";
+            _leftBarButtonItem.title = @"澳大利亚";
+            break;
+            
+        case 6:
+            self.nationalCode = @"NZ";
+            _leftBarButtonItem.title = @"新西兰";
+            break;
+            
+        case 7:
+            self.nationalCode = @"CN";
+            _leftBarButtonItem.title = @"中国";
+            break;
+            
+        default:
+            break;
     }
     
     count++;
+    
+    UIWindow *win = [UIApplication sharedApplication].keyWindow;
+    NSString *tip = [NSString stringWithFormat:@"已切换到‘%@’应用市场\n您的搜索结果将来源于此国家",_leftBarButtonItem.title];
+    [win makeToast:tip duration:1 position:@"center"];
 }
 
 #pragma mark - open detail store 
