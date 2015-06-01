@@ -27,6 +27,8 @@
 		9C5067821A25FF6A007EE617 /* FEItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5067801A25FF6A007EE617 /* FEItem.m */; };
 		9CED58961A260A4500ED0454 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CED58951A260A4500ED0454 /* SearchTableViewCell.m */; };
 		9CED58971A260A4500ED0454 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CED58951A260A4500ED0454 /* SearchTableViewCell.m */; };
+		EFD551991B1C5F52006B1410 /* ItemDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD551981B1C5F52006B1410 /* ItemDetailController.m */; };
+		EFD5519B1B1C63FE006B1410 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD5519A1B1C63FE006B1410 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,9 @@
 		B8A6F5B49DF3140B1E26D39B /* libPods-Favorite.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Favorite.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD83D80014C77722F399C2D1 /* Pods-Favorite.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Favorite/Pods-Favorite.debug.xcconfig"; sourceTree = "<group>"; };
 		D83A64C50CF3372837D707F6 /* Pods-Favorite.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite.release.xcconfig"; path = "Pods/Target Support Files/Pods-Favorite/Pods-Favorite.release.xcconfig"; sourceTree = "<group>"; };
+		EFD551971B1C5F52006B1410 /* ItemDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailController.h; sourceTree = "<group>"; };
+		EFD551981B1C5F52006B1410 /* ItemDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailController.m; sourceTree = "<group>"; };
+		EFD5519A1B1C63FE006B1410 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFD5519B1B1C63FE006B1410 /* StoreKit.framework in Frameworks */,
 				4C75053A0085DC10E13645AD /* libPods-Favorite.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +108,7 @@
 		8E4687D00F4D27DB08FA92F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFD5519A1B1C63FE006B1410 /* StoreKit.framework */,
 				B8A6F5B49DF3140B1E26D39B /* libPods-Favorite.a */,
 			);
 			name = Frameworks;
@@ -227,6 +234,7 @@
 		9CED58931A260A0E00ED0454 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EFD551961B1C5EEB006B1410 /* Detail */,
 				9C2CEC4D1A2383D5006EE2F6 /* SearchTableViewController.h */,
 				9C2CEC4E1A2383D5006EE2F6 /* SearchTableViewController.m */,
 				9CED58941A260A4500ED0454 /* SearchTableViewCell.h */,
@@ -242,6 +250,15 @@
 				D83A64C50CF3372837D707F6 /* Pods-Favorite.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EFD551961B1C5EEB006B1410 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				EFD551971B1C5F52006B1410 /* ItemDetailController.h */,
+				EFD551981B1C5F52006B1410 /* ItemDetailController.m */,
+			);
+			name = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,6 +410,7 @@
 				9C2CEC4A1A237DCD006EE2F6 /* NSObject+Network.m in Sources */,
 				9C3415B21A29E1DE00FC3FDF /* FavoriteTableViewController.m in Sources */,
 				9C2CEC491A237DCD006EE2F6 /* AFHTTPRequestOperationManager+HttpHeader.m in Sources */,
+				EFD551991B1C5F52006B1410 /* ItemDetailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,10 +11,10 @@
 #import "FEItem.h"
 #import <SVProgressHUD.h>
 #import "SearchTableViewCell.h"
-
+#import <StoreKit/StoreKit.h>
 #import "FEFavoriteManager.h"
 
-@interface SearchTableViewController ()<UISearchBarDelegate,UIAlertViewDelegate>
+@interface SearchTableViewController ()<UISearchBarDelegate,UIAlertViewDelegate,SKStoreProductViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic,strong) NSArray *dataArray;
 @property (nonatomic,strong) NSArray *searchHistoryArray;
@@ -199,6 +199,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     NSString *tip = [NSString stringWithFormat:NSLocalizedString(@"go to app store question", nil),_activeItem.trackName];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:tip delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alert show];
+//    [self openAppWithIdentifier:[NSNumber numberWithInt:364709193]];
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
@@ -313,6 +314,26 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     }
     
     count++;
+}
+
+#pragma mark - open detail store 
+- (void)openAppWithIdentifier:(NSNumber *)appId {
+    SKStoreProductViewController *storeProductVC = [[SKStoreProductViewController alloc] init];
+    storeProductVC.delegate = self;
+    
+    NSDictionary *dict = @{SKStoreProductParameterITunesItemIdentifier:appId};
+    [storeProductVC loadProductWithParameters:dict completionBlock:^(BOOL result, NSError *error) {
+        if (result) {
+            [self presentViewController:storeProductVC animated:YES completion:nil];
+        }
+    }];
+}
+
+#pragma mark - SKStoreProductViewControllerDelegate
+- (void)productViewControllerDidFinish:(SKStoreProductViewController *)viewController {
+    [viewController dismissViewControllerAnimated:YES completion:^{
+
+    }];
 }
 
 @end
